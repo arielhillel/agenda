@@ -4,6 +4,7 @@ const axios = require("axios");
 const Agenda = require("agenda");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cors = require('cors');
 
 const Schedule = require('./models/Schedule');
 
@@ -11,6 +12,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
+app.use(cors());
 
 const MONGO_CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING;
 
@@ -110,15 +112,6 @@ agenda.define("publish-random-post", async (job) => {
         throw error;
     }
 });
-
-// CORS options
-const corsOptions = {
-    origin: ['http://localhost:4200', 'https://wordpress-posts-social-media.vercel.app'],
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-
-// Enable CORS with the options
-app.use(cors(corsOptions));
 
 
 app.post("/schedule-posts", async (req, res) => {
