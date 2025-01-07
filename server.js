@@ -111,7 +111,7 @@ agenda.define("publish-random-post", async (job) => {
     }
 });
 
-app.post("/scheduleTimes", async (req, res) => {
+app.post("/schedule-posts", async (req, res) => {
     const { times, websiteId } = req.body;
 
     if (!Array.isArray(times) || times.length === 0) {
@@ -137,7 +137,7 @@ app.post("/scheduleTimes", async (req, res) => {
     res.json({ message: "Schedule updated and next job scheduled successfully.", nextTimes: schedule.times });
 });
 
-app.post("/cancelSchedule", async (req, res) => {
+app.post("/delete-job", async (req, res) => {
     const { time, websiteId } = req.body;
 
     if (!time || !websiteId) {
@@ -175,7 +175,7 @@ app.post("/cancelSchedule", async (req, res) => {
     });
 });
 
-app.get("/getScheduledTimes", async (req, res) => {
+app.get("/get-all-jobs", async (req, res) => {
     const { websiteId } = req.query;
 
     if (!websiteId) {
