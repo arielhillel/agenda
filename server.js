@@ -111,6 +111,16 @@ agenda.define("publish-random-post", async (job) => {
     }
 });
 
+// CORS options
+const corsOptions = {
+    origin: ['http://localhost:4200', 'https://wordpress-posts-social-media.vercel.app'],
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+// Enable CORS with the options
+app.use(cors(corsOptions));
+
+
 app.post("/schedule-posts", async (req, res) => {
     const { times, websiteId } = req.body;
 
@@ -187,10 +197,7 @@ app.get("/get-all-jobs", async (req, res) => {
         return res.json([]);
     }
 
-    res.json({
-        websiteId: websiteId,
-        scheduledTimes: schedule.times
-    });
+    res.json(schedule.times);
 });
 
 
