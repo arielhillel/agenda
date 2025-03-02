@@ -1,32 +1,34 @@
 {
-  "name": "ajenda",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "agenda": "^5.0.0",
-    "axios": "^1.7.9",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "dotenv-safe": "^9.1.0",
-    "express": "^4.21.2",
-    "moment-timezone": "^0.5.46",
-    "mongoose": "^8.9.3"
-  },
-  "devDependencies": {
-    "@types/agenda": "^4.1.4",
-    "@types/body-parser": "^1.19.5",
-    "@types/cors": "^2.8.17",
-    "@types/dotenv-safe": "^8.1.6",
-    "@types/express": "^5.0.0",
-    "@types/mongoose": "^5.11.97",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.2"
-  }
+    "name": "ajenda",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "ts-node src/app.ts",
+        "build": "tsc",
+        "serve": "node dist/app.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "agenda": "^5.0.0",
+        "axios": "^1.7.9",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "dotenv-safe": "^9.1.0",
+        "express": "^4.21.2",
+        "moment-timezone": "^0.5.46",
+        "mongoose": "^8.9.3"
+    },
+    "devDependencies": {
+        "@types/agenda": "^4.1.4",
+        "@types/body-parser": "^1.19.5",
+        "@types/cors": "^2.8.17",
+        "@types/dotenv-safe": "^8.1.6",
+        "@types/express": "^5.0.0",
+        "@types/mongoose": "^5.11.97",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.8.2"
+    }
 }
