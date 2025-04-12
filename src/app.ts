@@ -1,5 +1,4 @@
 import express from "express";
-import cors from "cors";
 import bodyParser from "body-parser";
 import Agenda from "agenda";
 import { loadEnv, EnvConfig } from "./config/env";
@@ -13,7 +12,7 @@ const app = express();
 const agenda = new Agenda({ db: { address: env.MONGO_CONNECTION_STRING } });
 
 app.use(bodyParser.json());
-app.use(cors());
+
 app.use(authenticate(env.PASSWORD));
 app.use("/", scheduleRoutes);
 
